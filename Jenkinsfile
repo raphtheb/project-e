@@ -5,22 +5,20 @@ pipeline {
     dockerImage = ‘’
   }
   agent any
-  tools {nodejs “node” }
   stages {
     stage(‘Cloning Git’) {
       steps {
-        git ‘https://github.com/gustavoapolinario/microservices-node-example-todo-frontend.git'
+        git ‘https://github.com/karthequian/docker-helloworld'
       }
     }
     stage(‘Build’) {
        steps {
-         sh ‘npm install’
-         sh ‘npm run bowerInstall’
+         sh ‘docker build .’
        }
     }
     stage(‘Test’) {
       steps {
-        sh ‘npm test’
+        sh ‘echo "Running tests here."’
       }
     }
     stage(‘Building image’) {
