@@ -13,7 +13,10 @@ choice) using any technique you prefer.
 How to use this project?
 
 ```
+docker-compose build
 docker-compose up
+Use your favourite browser to hit localhost:8080
+default credentials are admin/admin
 ```
 
 # Project notes
@@ -41,6 +44,9 @@ Note: In a real-world context, this detail would become a backlog story.
 Executors (or as often poorly named, "slaves") are a great way to spread the load across multiple nodes instead of encumbering the "master" Jenkins with actual compilation/fetching duties.
 
 For simplicity's sake i have chosen to omit using those. It would be the first thing to implement to scale this up.
+
+## Where's the setup wizard gone?
+The setup wizard is useful when you want a single, central, SPOF Jenkins server. Since we want this project to be fully "docker-ized", it must be stateless, and therefore fully functioning without manual intervention, such as filling forms / wizards.
 
 
 ## nginx hello world image

@@ -1,37 +1,34 @@
+#!groovy
+
 pipeline {
-  environment {
-    registry = “gustavoapolinario/docker-test”
-    registryCredential = ‘dockerhub’
-    dockerImage = ‘’
-  }
   agent any
   stages {
-    stage(‘Cloning Git’) {
+    stage('Cloning Git') {
       steps {
         git ‘https://github.com/karthequian/docker-helloworld'
       }
     }
-    stage(‘Build’) {
+    stage('Build') {
        steps {
          sh ‘docker build .’
        }
     }
-    stage(‘Test’) {
+    stage('Test') {
       steps {
         sh ‘echo "Running tests here."’
       }
     }
-    stage(‘Building image’) {
+    stage('Building image') {
       steps{
         script {
           dockerImage = docker.build registry + “:$BUILD_NUMBER”
         }
       }
     }
-    stage(‘Deploy Image’) {
+    stage('Deploy Image') {
       steps{
          script {
-            docker.withRegistry( ‘’, registryCredential ) {
+            docker.withRegistry( '', registryCredential ) {
             dockerImage.push()
           }
         }
