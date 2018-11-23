@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git ‘https://github.com/karthequian/docker-helloworld'
+        git 'https://github.com/karthequian/docker-helloworld'
       }
     }
     stage('Build') {
@@ -15,7 +15,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh ‘echo "Running tests here."’
+        sh 'echo "Running tests here."'
       }
     }
     stage('Building image') {
