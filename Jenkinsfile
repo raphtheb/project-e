@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Build') {
        steps {
-         sh ‘docker build .’
+         sh 'docker build .'
        }
     }
     stage('Test') {
@@ -21,7 +21,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build registry + “:$BUILD_NUMBER”
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
