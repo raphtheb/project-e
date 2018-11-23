@@ -5,19 +5,3 @@ tool:
     installations:
     - home: "git"
       name: "Default"
-jobs:
-  - script: >
-      pipelineJob('pipeline') {
-          definition {
-              cpsScm {
-                  scriptPath 'Jenkinsfile'
-                  scm {
-                    git {
-                        remote { url 'https://github.com/raphtheb/project-e.git' }
-                        branch 'master'
-                        extensions {}
-                    }
-                  }
-              }
-          }
-      }

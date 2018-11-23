@@ -1,3 +1,6 @@
 github:latest
 job-dsl:latest
 configuration-as-code:latest
+matrix-auth:latest
+docker-workflow:latest
+credentials-binding:latest

@@ -1,5 +1,7 @@
 master:
   build: .
+  environment:
+    JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
   ports:
     - "50000:50000"
     - "8080:8080"

@@ -37,6 +37,11 @@ However, since the purpose of this exercise is to show that i can use docker/jen
 
 Note: In a real-world context, this detail would become a backlog story.
 
+## Why not use executors?
+Executors (or as often poorly named, "slaves") are a great way to spread the load across multiple nodes instead of encumbering the "master" Jenkins with actual compilation/fetching duties.
+
+For simplicity's sake i have chosen to omit using those. It would be the first thing to implement to scale this up.
+
 
 ## nginx hello world image
 For simplicity's sake, i will be using https://github.com/karthequian/docker-helloworld. That's the first one i googled.
