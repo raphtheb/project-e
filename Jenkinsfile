@@ -30,7 +30,6 @@ pipeline {
       steps{
          script {
             sh 'docker run nginx:latest'
-          }
         }
       }
     }
