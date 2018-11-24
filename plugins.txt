@@ -4,3 +4,4 @@ configuration-as-code:latest
 matrix-auth:latest
 docker-workflow:latest
 credentials-binding:latest
+workflow-aggregator:latest
