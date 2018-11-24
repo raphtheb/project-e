@@ -18,18 +18,10 @@ pipeline {
         sh 'echo "Running tests here. Except this build has no tests."'
       }
     }
-    stage('Building image') {
-      steps{
-        script {
-          sh 'echo "This should fail."'
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
-    }
     stage('Deploy Image') {
       steps{
          script {
-            sh 'docker run nginx:latest'
+            sh 'docker run -d nginx:latest'
         }
       }
     }
