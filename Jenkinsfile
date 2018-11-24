@@ -5,17 +5,17 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/nginxinc/NGINX-Demos/tree/master/nginx-hello'
+        git 'https://github.com/nginxinc/NGINX-Demos.git'
       }
     }
     stage('Build') {
        steps {
-         sh 'docker build .'
+         sh 'cd nginx-hello; docker build --tag nginx:latest .'
        }
     }
     stage('Test') {
       steps {
-        sh 'echo "Running tests here."'
+        sh 'echo "Running tests here. Except this build has no tests."'
       }
     }
     stage('Building image') {
@@ -29,8 +29,7 @@ pipeline {
     stage('Deploy Image') {
       steps{
          script {
-            docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
+            sh 'docker run nginx:latest'
           }
         }
       }
