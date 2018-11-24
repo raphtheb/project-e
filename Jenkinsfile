@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/karthequian/docker-helloworld'
+        git 'https://github.com/nginxinc/NGINX-Demos/tree/master/nginx-hello'
       }
     }
     stage('Build') {
@@ -21,6 +21,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
+          sh 'echo "This should fail."'
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }

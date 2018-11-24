@@ -9,6 +9,13 @@ ENV JENKINS_PASS admin
 # And we disable the setup wizard
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
+# We need to install docker in this container so it can spawn builds.
+USER root
+RUN apk add docker \
+  && apk add --update shadow \
+  && usermod -a -G root jenkins
+USER jenkins
+
 # Pre-install plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 
