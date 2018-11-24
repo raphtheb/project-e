@@ -1,6 +1,9 @@
 #!groovy
 
 pipeline {
+  environment {
+    registry = "localhost/nginx"
+  }
   agent any
   stages {
     stage('Cloning Git') {
@@ -21,7 +24,7 @@ pipeline {
     stage('Deploy Image') {
       steps{
          script {
-            sh 'docker run -d nginx:latest'
+            docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }

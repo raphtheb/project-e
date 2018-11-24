@@ -1,5 +1,5 @@
 Project-E
-https://github.com/maxfields2000/dockerjenkins_tutorial/tree/master/jenkins
+
 # Project Specifications
 
 1. Create a Jenkins Docker and run locally or on a server of your choice.
@@ -48,6 +48,5 @@ For simplicity's sake i have chosen to omit using those. It would be the first t
 ## Where's the setup wizard gone?
 The setup wizard is useful when you want a single, central, SPOF Jenkins server. Since we want this project to be fully "docker-ized", it must be stateless, and therefore fully functioning without manual intervention, such as filling forms / wizards.
 
-
-## nginx hello world image
-For simplicity's sake, i will be using https://github.com/karthequian/docker-helloworld. That's the first one i googled.
+## What about the registry?
+To make things simple, i chose to merely pull down the default registry image and store in-memory. 
