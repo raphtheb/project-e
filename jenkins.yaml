@@ -4,7 +4,7 @@ tool:
   git:
     installations:
     - name: "git"
-      home: "/usr/local/bin/git"
+      home: "/usr/bin/git"
 jobs:
   - script: >
       pipelineJob('project-e') {
