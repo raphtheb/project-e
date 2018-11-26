@@ -5,18 +5,3 @@ tool:
     installations:
     - name: "git"
       home: "/usr/bin/git"
-jobs:
-  - script: >
-      pipelineJob('project-e') {
-          definition {
-              cpsScm {
-                  scriptPath 'Jenkinsfile'
-                  scm {
-                    git {
-                        remote { url 'https://github.com/raphtheb/project-e.git' }
-                        branch 'master'
-                    }
-                  }
-              }
-          }
-      }

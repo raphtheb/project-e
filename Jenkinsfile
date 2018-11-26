@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Build') {
        steps {
-         sh 'cd nginx-hello; docker build --tag nginx:latest .'
+         sh 'cd nginx-hello; docker build --tag localhost:5000/nginx:latest .'
        }
     }
     stage('Test') {
@@ -23,9 +23,7 @@ pipeline {
     }
     stage('Deploy Image') {
       steps{
-         script {
-            docker.build registry + ":$BUILD_NUMBER"
-        }
+        sh 'docker push localhost:5000/nginx:latest'
       }
     }
   }
