@@ -1,0 +1,4 @@
+# Ignore all of jenkins_home
+jenkins_home
+# except our nginx job definition
+!jenkins_home/jobs/nginx/config.xml
